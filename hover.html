@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fixed Dropdown</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .nav {
+      background-color: #0c1027;
+      width: 100%;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+    }
+
+    .nav ul li {
+      position: relative;
+    }
+
+    .nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 20px;
+      padding: 10px 20px;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .nav ul li ul.genere {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: lightgray;
+      min-width: 120px;
+      z-index: 99;
+    }
+
+    .nav ul li:hover ul.genere {
+      display: block;
+    }
+
+    .genere li a {
+      color: black;
+
+      font-size: 18px;
+      padding: 10px;
+      display: block;
+    }
+
+    
+    .genere li a:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Latest</a></li>
+
+      <li>
+        <a href="#">Genre</a>
+        <ul class="genere">
+          <li><a href="#">Tech</a></li>
+          <li><a href="#">Politics</a></li>
+          <li><a href="#">Legal</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#">Hots</a></li>
+    </ul>
+  </div>
+</body>
+</html>

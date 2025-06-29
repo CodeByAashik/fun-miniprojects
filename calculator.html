@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            height: 65px;
+            width: 65px;
+            padding:5px;
+            border-radius: 50%;
+            font-size: 20px;
+        }
+        #clear{
+            width: 100%;
+        }
+        input{
+            width: 97%;
+            height: 60px;
+            text-align: end;
+            font-size: 20px;
+        }
+        tr:nth-child(6) button{
+            border-radius: 20px;
+        }
+        td:nth-child(4) button{
+            background-color: red;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table>
+            <tr>
+                <td colspan="4">
+                    <input type="text" name="" id="result">
+                </td>
+            </tr>
+            <tr>
+                <td><button onclick="updateCalculation('7');">7</button></td>
+                <td><button onclick="updateCalculation('8');">8</button></td>
+                <td><button onclick="updateCalculation('9');">9</button></td>
+                <td><button onclick="updateCalculation('+');">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="updateCalculation('4');">4</button></td>
+                <td><button onclick="updateCalculation('5');">5</button></td>
+                <td><button onclick="updateCalculation('6');">6</button></td>
+                <td><button onclick="updateCalculation('-');">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="updateCalculation('1');">1</button></td>
+                <td><button onclick="updateCalculation('2');">2</button></td>
+                <td><button onclick="updateCalculation('3');">3</button></td>
+                <td><button onclick="updateCalculation('*');">*</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="updateCalculation('0');">0</button></td>
+                <td><button onclick="updateCalculation('.');">.</button></td>
+                <td><button onclick="updateCalculation('/');">/</button></td>
+                <td><button onclick="calculateValue();">=</button></td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <button onclick="clearRes();" id="clear">Clear</button>
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+    <script>
+        let calculate = '';
+        function display(){
+            document.getElementById('result').value=calculate;
+        }
+
+        function updateCalculation(value){
+            calculate+=value;
+            display();
+        }
+
+        function calculateValue(){
+            try{
+                calculate=eval(calculate);
+                display();
+            }catch(error){
+                document.getElementById('result').value="Syntax milau muji!!!";
+            }
+
+        }
+
+        function clearRes(){
+            calculate='';
+            display();
+        }
+
+
+    </script>
+</body>
+</html>

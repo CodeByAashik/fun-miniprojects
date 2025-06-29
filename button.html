@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Effect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100vw;
+            /* background-color: blueviolet; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hovering-effect {
+            position: relative;
+            padding: 8px 25px;
+            font-weight: bold;
+            font-size: 15px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            color: blueviolet;
+            /* background-color: transparent; */
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hovering-effect::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 100%;
+            width: 0%;
+            background-color: blueviolet;
+            transition: all 0.3s ease-in-out;
+            z-index: -1;
+            border-radius: 50px;
+        }
+        
+        
+        .hovering-effect:hover::before {
+            width: 100%;
+        }
+
+        .hovering-effect:hover{
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="hovering-effect">Hover me</button>
+    </div>
+</body>
+</html>

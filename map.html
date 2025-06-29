@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leaflet Map with Info Card</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+
+    .info-card {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #0c1027;
+      color: white;
+      padding: 25px;
+      border-radius: 15px;
+      width: 320px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    .info-card h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .info-card h3 {
+      color: orange;
+      margin: 8px 0;
+    }
+
+    .info-card p, .info-card a {
+      font-size: 15px;
+      margin: 5px 0;
+    }
+
+    .info-card a {
+      color: #f89e3e;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Floating Info Box -->
+<div class="info-card">
+  <h2>McDonald’s</h2>
+  <h3>South London</h3>
+  <p>Tooley St, London Bridge, London SE1 2TF,<br>United Kingdom</p>
+  <p><strong>Phone number</strong><br>+934443–43</p>
+  <p><strong>Website</strong><br><a href="http://mcdonalds.uk/" target="_blank">http://mcdonalds.uk/</a></p>
+</div>
+
+<!-- Map Container -->
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+  // Map Initialization
+  const map = L.map('map').setView([51.5079, -0.0877], 15); // South London
+
+  // Load OpenStreetMap tiles
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  // Add a Marker
+  L.marker([27.7172, 85.3240]).addTo(map)
+    .bindPopup("<b>McDonald's</b><br>South London")
+    .openPopup();
+</script>
+
+</body>
+</html>

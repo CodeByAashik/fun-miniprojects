@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     .image-vignette {
+  position: relative;
+  overflow: hidden;
+  /* width: 50%; */
+}
+
+.image-vignette img{
+    height: 18rem;
+}
+
+.image-vignette::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.image-vignette:hover::after {
+  opacity: 1;
+}
+
+
+
+    </style>
+
+</head>
+<body>
+    <div class="image-vignette">
+  <img src="https://media.istockphoto.com/id/184276818/photo/red-apple.jpg?s=612x612&w=0&k=20&c=NvO-bLsG0DJ_7Ii8SSVoKLurzjmV0Qi4eGfn6nW3l5w=" alt="Hero Image">
+</div>
+
+</body>
+</html>

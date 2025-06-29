@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login Modal Example</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Optional: modal fade-in animation */
+    .modal-enter {
+      opacity: 0;
+      transition: opacity 0.3s ease-in;
+    }
+    .modal-enter-active {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+  <!-- Login Button -->
+  <button 
+    id="loginBtn" 
+    class="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+  >
+    Login
+  </button>
+
+  <!-- Modal -->
+  <div 
+    id="loginModal" 
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50"
+  >
+    <div class="bg-white rounded-lg p-8 w-96 relative shadow-lg">
+      <!-- Close Button -->
+      <button 
+        id="closeModalBtn" 
+        class="absolute top-3 right-3 text-gray-600 hover:text-gray-900 text-2xl font-bold"
+        aria-label="Close modal"
+      >
+        &times;
+      </button>
+
+      <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
+
+      <form id="loginForm" class="flex flex-col gap-4">
+        <input 
+          type="text" 
+          placeholder="Email or Phone" 
+          required 
+          class="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <input 
+          type="password" 
+          placeholder="Password" 
+          required 
+          class="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <button 
+          type="submit" 
+          class="bg-blue-600 text-white rounded py-2 hover:bg-blue-700 transition"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Get DOM elements
+    const loginBtn = document.getElementById('loginBtn');
+    const modal = document.getElementById('loginModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const loginForm = document.getElementById('loginForm');
+
+    // Show modal
+    loginBtn.addEventListener('click', () => {
+      modal.classList.remove('hidden');
+    });
+
+    // Hide modal
+    closeModalBtn.addEventListener('click', () => {
+      modal.classList.add('hidden');
+    });
+
+    // Hide modal on clicking outside modal content
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+      }
+    });
+
+    // Handle form submit
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Login form submitted!');
+      modal.classList.add('hidden');
+      loginForm.reset();
+    });
+
+    // Optional: close modal on ESC key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        modal.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
+
