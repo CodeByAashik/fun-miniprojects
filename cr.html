@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Reviews</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fefefe;
+}
+
+.reviews-section {
+  background-color: #efefef;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.reviews-section h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.review-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.arrow {
+  background-color: orange;
+  color: white;
+  border: none;
+  font-size: 30px;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.review-cards {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+}
+
+.review-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  width: 280px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  flex-shrink: 0;
+}
+
+.review-card img {
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+}
+
+.review-info {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.review-info .location {
+  color: orange;
+  font-weight: 500;
+}
+
+.review-info .date {
+  display: block;
+  margin-top: 4px;
+  color: gray;
+}
+
+.stars {
+  color: orange;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.review-text {
+  font-size: 13px;
+  color: #333;
+  margin-top: 10px;
+}
+
+.average-rating {
+  margin-top: 30px;
+}
+
+.rating {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.star-display {
+  color: gold;
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.review-count {
+  font-size: 14px;
+  color: gray;
+}
+
+  </style>
+</head>
+<body>
+
+  <section class="reviews-section">
+    <h2>Customer Reviews</h2>
+    <div class="review-carousel">
+      <button class="arrow left">&#8592;</button>
+
+      <div class="review-cards">
+        <div class="review-card">
+          <img src="https://i.pravatar.cc/50" alt="User Image">
+          <div class="review-info">
+            <strong>St Glx</strong><br>
+            <span class="location">South London</span>
+            <span class="date">&#128337; 24th September, 2023</span>
+            <div class="stars">★★★★★</div>
+          </div>
+          <p class="review-text">
+            The positive aspect was undoubtedly the efficiency of the service. The queue moved quickly, the staff was friendly, and the food was up to the usual McDonald’s standard – hot and satisfying.
+          </p>
+        </div>
+
+        <!-- Duplicate the card two more times -->
+        <div class="review-card">
+          <img src="https://i.pravatar.cc/51" alt="User Image">
+          <div class="review-info">
+            <strong>St Glx</strong><br>
+            <span class="location">South London</span>
+            <span class="date">&#128337; 24th September, 2023</span>
+            <div class="stars">★★★★★</div>
+          </div>
+          <p class="review-text">
+            The positive aspect was undoubtedly the efficiency of the service. The queue moved quickly, the staff was friendly, and the food was up to the usual McDonald’s standard – hot and satisfying.
+          </p>
+        </div>
+
+        <div class="review-card">
+          <img src="https://i.pravatar.cc/52" alt="User Image">
+          <div class="review-info">
+            <strong>St Glx</strong><br>
+            <span class="location">South London</span>
+            <span class="date">&#128337; 24th September, 2023</span>
+            <div class="stars">★★★★★</div>
+          </div>
+          <p class="review-text">
+            The positive aspect was undoubtedly the efficiency of the service. The queue moved quickly, the staff was friendly, and the food was up to the usual McDonald’s standard – hot and satisfying.
+          </p>
+        </div>
+      </div>
+
+      <button class="arrow right">&#8594;</button>
+    </div>
+
+    <div class="average-rating">
+      <span class="rating">3.4</span>
+      <div class="star-display">★★★☆☆</div>
+      <p class="review-count">1,360 reviews</p>
+    </div>
+  </section>
+
+</body>
+</html>

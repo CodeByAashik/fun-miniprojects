@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Notification Card</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      /* background-color: orange; */
+      margin: 0;
+      padding: 50px;
+    }
+
+    .card-container {
+      position: relative;
+      width: 400px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .background-number {
+  position: absolute;
+  top: -70px;
+  right: -10px;
+  font-size: 100px;
+  font-weight: bold;
+  color: white;
+  -webkit-text-stroke: 1px orange;
+  z-index: 0;
+}
+
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 20px;
+      color: #141e46;
+    }
+
+    .logo img{
+        width: 80px;
+        height: 25px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #555;
+      margin-top: 5px;
+    }
+
+    .time {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 12px;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-container">
+    <div class="background-number">1</div>
+    <div class="card-content">
+      <div class="logo"><img src="logo.png" alt=""></div>
+      <div class="time">now</div>
+      <div class="title">We’ve Received your order! 🚨</div>
+      <div class="subtitle">Awaiting Restaurant acceptance</div>
+    </div>
+  </div>
+
+</body>
+</html>
