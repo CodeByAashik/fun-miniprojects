@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Restaurants Near You</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #FC8A06;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .location-select {
+      text-align: center;
+      margin: 20px;
+    }
+
+    select {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .restaurants {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .restaurant-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .restaurant-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .restaurant-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+    }
+
+    .restaurant-info {
+      padding: 15px;
+      background-color: white;
+    }
+
+    .restaurant-info h3 {
+      margin: 5px 0;
+      color: #FC8A06;
+    }
+
+    .restaurant-info p {
+      margin: 5px 0;
+      color: #555;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Discover Restaurants Near You</h1>
+</header>
+
+<div class="location-select">
+  <label for="locality">Select Your Locality: </label>
+  <select id="locality" onchange="filterRestaurants()">
+    <option value="all">All</option>
+    <option value="Lalitpur">Lalitpur</option>
+    <option value="Kathmandu">Kathmandu</option>
+    <option value="Pokhara">Pokhara</option>
+  </select>
+</div>
+
+<div class="restaurants" id="restaurantList">
+  <!-- Sample restaurant card -->
+  <div class="restaurant-card" data-location="Kathmandu">
+    <img src="https://source.unsplash.com/400x300/?restaurant,food" class="restaurant-img" alt="Restaurant">
+    <div class="overlay"></div>
+    <div class="restaurant-info">
+      <h3>Biryani House</h3>
+      <p>⭐ 4.5 | Indian, Mughlai</p>
+      <p>⏱ 30 mins | ₹30 delivery</p>
+      <p>🔥 20% off on orders above ₹299</p>
+    </div>
+  </div>
+
+  <div class="restaurant-card" data-location="Lalitpur">
+    <img src="https://source.unsplash.com/400x300/?burger,restaurant" class="restaurant-img" alt="Restaurant">
+    <div class="overlay"></div>
+    <div class="restaurant-info">
+      <h3>Cheesy Bites</h3>
+      <p>⭐ 4.2 | Fast Food, American</p>
+      <p>⏱ 25 mins | ₹20 delivery</p>
+      <p>🔥 Free Coke on orders above ₹199</p>
+    </div>
+  </div>
+
+  <div class="restaurant-card" data-location="Pokhara">
+    <img src="https://source.unsplash.com/400x300/?pizza,restaurant" class="restaurant-img" alt="Restaurant">
+    <div class="overlay"></div>
+    <div class="restaurant-info">
+      <h3>Pizza Planet</h3>
+      <p>⭐ 4.7 | Italian, Pizza</p>
+      <p>⏱ 35 mins | ₹25 delivery</p>
+      <p>🔥 15% off on all pizzas</p>
+    </div>
+  </div>
+
+  <!-- Add more restaurant cards here -->
+</div>
+
+<script>
+  function filterRestaurants() {
+    const selected = document.getElementById('locality').value;
+    const cards = document.querySelectorAll('.restaurant-card');
+
+    cards.forEach(card => {
+      if (selected === 'all' || card.getAttribute('data-location') === selected) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
