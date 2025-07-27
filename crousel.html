@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smooth Review Slider</title>
+<style>
+  .carousel-container {
+    width: 640px; /* 3 cards of 200px + margins */
+    overflow: hidden;
+    margin: 40px auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  .reviews-row {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* smooth slide */
+  }
+
+  .review {
+    min-width: 200px;
+    margin: 20px;
+    background: #f3f3f3;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+
+  .arrows {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  button {
+    font-size: 18px;
+    padding: 5px 15px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="carousel-container">
+  <div class="reviews-row" id="reviews-row">
+    <!-- JS se sab reviews aa jayenge -->
+  </div>
+</div>
+
+<div class="arrows">
+  <button onclick="prev()">&#10094; Prev</button>
+  <button onclick="next()">Next &#10095;</button>
+</div>
+
+<script>
+  const reviews = [
+    {text: "Food was delicious!", user: "Rahul"},
+    {text: "Great ambiance!", user: "Priya"},
+    {text: "Affordable and tasty.", user: "Aashik"},
+    {text: "Loved the drinks.", user: "Neha"},
+    {text: "Pizza was amazing!", user: "Kiran"},
+    {text: "Fast delivery!", user: "Vikram"}
+  ];
+
+  const row = document.getElementById("reviews-row");
+  const visibleCount = 3;
+  const cardWidth = 240; // 200px card + 40px margin (20 left + 20 right)
+  let currentSlide = 0;
+
+  // Render all reviews side by side
+  reviews.forEach(r => {
+    const div = document.createElement("div");
+    div.className = "review";
+    div.innerHTML = `<p>${r.text}</p><h4>- ${r.user}</h4>`;
+    row.appendChild(div);
+  });
+
+  function updateSlide() {
+    const maxSlide = reviews.length - visibleCount;
+    if (currentSlide < 0) currentSlide = 0;
+    if (currentSlide > maxSlide) currentSlide = maxSlide;
+    row.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+  }
+
+  function next() {
+    currentSlide=(currentSlide+1)%reviews.length;
+    updateSlide();
+  }
+
+  function prev() {
+    currentSlide--;
+    updateSlide();
+  }
+
+  // Auto slide every 4 sec
+//   setInterval(next, 4000);
+
+  updateSlide();
+</script>
+
+</body>
+</html>
